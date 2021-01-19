@@ -1,10 +1,7 @@
 <template>
   <div id="app">
     <div>
-      <div class="watermark">
-        <canvas ref="watermark"/>
-      </div>
-      <div style="padding-top:100px">
+      <div style="padding-top:20px">
         <el-form label-width="100px">
           <el-form-item label="图片">
             <el-upload :show-file-list="false" :auto-upload="false" :on-change="uploadImage">
@@ -33,13 +30,19 @@
           </el-form-item>
         </el-form>
       </div>
+      <div class="watermark">
+        <canvas ref="watermark"/>
+      </div>
     </div>
   </div>
 </template>
 <script>
-// import test from './assets/test.jpeg'
+import { Form, FormItem, Slider, ColorPicker, Input, Button, Upload } from 'element-ui'
 export default {
   name: 'APP',
+  components: {
+    'el-form': Form, 'el-form-item': FormItem, 'el-slider': Slider, 'el-color-picker': ColorPicker, 'el-input': Input, 'el-button': Button, 'el-upload': Upload
+  },
   data () {
     return {
       ctx: null,
@@ -131,8 +134,7 @@ export default {
 }
 .watermark{
   margin: 0 auto;
-  min-width: 500px;
-  min-height: 400px;
+  max-width: 100%;
   overflow: auto;
 }
 </style>
